@@ -1,0 +1,29 @@
+> DataMeanStd <- Data[ ,c("Subject",
++                         
++                         "Activity",
++                         
++                         grep(mean), colnames(Data), value=TRUE)]
+Error in grep(mean) : argument "x" is missing, with no default
+> 
+> data_sub  <- melt(DataMeanStd, id.vars=c("Subject","Activity"))     
+Error in melt(DataMeanStd, id.vars = c("Subject", "Activity")) : 
+  could not find function "melt"
+> 
+> # Use dcast function on the data for the subject/activity and then calculate the average of these variables
+> 
+> # Create the tidy_data variable for final results
+> 
+> tidy_data     <- dcast(data_sub, Subject + Activity ~ variable, mean)
+Error in dcast(data_sub, Subject + Activity ~ variable, mean) : 
+  could not find function "dcast"
+> 
+> # Write the tidy_data to a unique file
+> 
+> # Output solely the column names of tidy_data for your CodeBook.md
+> 
+> cat(names(tidy_data), sep="\n")
+Error in cat(names(tidy_data), sep = "\n") : object 'tidy_data' not found
+> 
+> write.table(tidy_data, row.name=FALSE, file = "tidy_data.txt")
+Error in is.data.frame(x) : object 'tidy_data' not found
+> 
